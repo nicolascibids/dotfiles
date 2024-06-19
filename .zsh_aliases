@@ -1,0 +1,26 @@
+# Alias for Scibids work
+
+alias cloudsql_staging_mysql_no_port="/cloudsql/cloud-sql-proxy webinterfacetest-1:europe-west1:webinterfacetest -u /cloudsql"
+alias cloudsql_staging_mysql_port="/cloudsql/cloud-sql-proxy webinterfacetest-1:europe-west1:webinterfacetest -p 3307"
+alias cloudsql_prod_mysql_no_port="/cloudsql/cloud-sql-proxy erudite-host:europe-west1:webinterface-readonly-1 -u /cloudsql"
+alias cloudsql_prod_mysql_port="/cloudsql/cloud-sql-proxy erudite-host:europe-west1:webinterface-readonly-1 -p 3306"
+
+# Compute Engine
+alias start_scibribe_machine='gcloud compute instances --project "scibribe" start --zone "europe-west1-b" "scibribe-machine"'
+alias ssh_scibribe_machine='gcloud compute --project "scibribe" ssh --zone "europe-west1-b" "scibribe-machine"'
+alias scheduler_dataeng='gcloud beta compute ssh --zone "europe-west1-d" "scheduler-core-appnexus-march"  --project "noted-victory-133614"'
+alias nfs_volume_ssh='bash ~/rtboptimizer1/kubernetes/log_consultation/log_consultation.sh'
+alias ssh_scheduler_math='gcloud compute --project "noted-victory-133614" ssh --zone "europe-west1-d" "scheduler-math-test"'
+
+
+# Kubernetes
+alias kub=kubectl
+
+# Git
+alias git_clean_local="git branch --merged >/tmp/merged-branches &&   vi /tmp/merged-branches && xargs git branch -d </tmp/merged-branches"
+alias flake8_all_branch_vs_develop="git diff --name-only --cached origin/develop | grep -F .py | xargs -n1 -L1 flake8 $1"
+alias black_all_branch_vs_develop="git diff --name-only --cached origin/develop | grep -F .py | xargs -n1 -L1 black $1"
+
+
+# Pytest 
+alias pytnw="python -m pytest --disable-warnings"

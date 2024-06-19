@@ -1,0 +1,18 @@
+[user]
+	email = nicolas@scibids.com
+	name = nicolascibids
+[push]
+	autoSetupRemote = true
+[alias]
+	pfl = push --force-with-lease
+	stashall = stash  --include-untrackeda
+	devstart = "!f() { git checkout develop && git pull; }; f"
+	mastart = "!f() { git checkout master && git pull; }; f"
+	cherrymaster = "!f() { git mastart && git checkout -b $1_master && git cherry-pick $2 && git push; }; f"
+	applypush = "!f() { git add . && git commit --amend --no-edit && git pfl; }; f"
+	logone = "!f() { git log --oneline | head -1; }; f"
+[filter "lfs"]
+	required = true
+	clean = git-lfs clean -- %f
+	smudge = git-lfs smudge -- %f
+	process = git-lfs filter-process
