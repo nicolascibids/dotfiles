@@ -125,12 +125,12 @@ rtbenv_setup
 # Custom command (= aliases with args)
 pacing_insight(){
     cd ~/rtboptimizer1
-    python tool/otto/pacing_insight.py $1 nicolas/pacing_tool/insights/pacing/ $2 $3 $4
+    python tool/otto/insights/pacing_insight.py $1 nicolas/pacing_tool/insights/pacing/ $2 $3 $4
     cd ~/rtboptimizer1/nicolas/pacing_tool/insights/pacing/
 }
 model_insight(){
     cd ~/rtboptimizer1
-    python tool/otto/model_insight.py $1 nicolas/pacing_tool/insights/model/ $2 --algo bm $3 $4
+    python tool/otto/insights/model_insight.py $1 nicolas/pacing_tool/insights/model/ $2 --algo bm $3 $4
     cd ~/rtboptimizer1/nicolas/pacing_tool/insights/model/
 }
 
@@ -140,18 +140,18 @@ pacing_insight_diageo(){
 
 pacing_insight_DBM(){
     cd ~/rtboptimizer1
-    python tool/otto/pacing_insight.py DBM nicolas/pacing_tool/insights/pacing/ $1 $2 $3 --algo $4
+    python tool/otto/insights/pacing_insight.py DBM nicolas/pacing_tool/insights/pacing/ $1 $2 $3 --algo $4
     cd ~/rtboptimizer1/nicolas/pacing_tool/insights/pacing/
 }
 model_insight_DBM(){
     cd ~/rtboptimizer1
-    python tool/otto/model_insight.py DBM nicolas/pacing_tool/insights/model/ $1 $2 $3 --algo $4
+    python tool/otto/insights/model_insight.py DBM nicolas/pacing_tool/insights/model/ $1 $2 $3 --algo $4
     cd ~/rtboptimizer1/nicolas/pacing_tool/insights/model/ 
 }
 
 trueview_insight(){
     cd ~/rtboptimizer1
-    python tool/otto/trueview_insight.py nicolas/pacing_tool/insights/pacing/ $1 $2 $3 $4
+    python tool/otto/insights/trueview_insight.py nicolas/pacing_tool/insights/pacing/ $1 $2 $3 $4
     cd ~/rtboptimizer1/nicolas/pacing_tool/insights/pacing/
 }
 
