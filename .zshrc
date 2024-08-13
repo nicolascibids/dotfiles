@@ -155,6 +155,10 @@ trueview_insight(){
     cd ~/rtboptimizer1/nicolas/pacing_tool/insights/pacing/
 }
 
+clean_logfile() {
+    sed -i '' -e 's/\x1b\[[0-9;]*m//g' $1
+}
+
 
 # Kubernetes
 function getCronJobImagesAndNames() {
