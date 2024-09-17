@@ -168,6 +168,14 @@ function getCronJobImagesAndNames() {
     kubectl get cronjobs -n "$namespace" -l "$labelSelector" -o=jsonpath='{range .items[*]}{.metadata.name}{"\n"}{range .spec.jobTemplate.spec.template.spec.containers[*]}{.name}{": "}{.image}{"\n"}{end}{end}'
 }
 
+function intraday_cronjob_read() {
+    getCronJobImagesAndNames name=intraday-alerting |grep $1 |awk -F ':' '{print $1}'| xargs -I {} kubectl  get cronjob {}
+}
+
+function intraday_cronjob_del() {
+    getCronJobImagesAndNames name=intraday-alerting |grep $1 |awk -F ':' '{print $1}'| xargs -I {} kubectl  delete cronjob {}
+}
+
 # The next line updates PATH for the Google Cloud SDK.
 if [ -f '/Users/nicolasp/google-cloud-sdk/path.zsh.inc' ]; then . '/Users/nicolasp/google-cloud-sdk/path.zsh.inc'; fi
 
@@ -182,3 +190,7 @@ fi
 # export LDFLAGS="-L/opt/homebrew/opt/mysql-client/lib"
 # export CPPFLAGS="-I/opt/homebrew/opt/mysql-client/include"
 # export PKG_CONFIG_PATH="/opt/homebrew/opt/mysql-client/lib/pkgconfig"
+
+export NVM_DIR="$HOME/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
+[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
