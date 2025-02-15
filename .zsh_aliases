@@ -3,7 +3,7 @@
 alias cloudsql_staging_mysql_no_port="/cloudsql/cloud-sql-proxy webinterfacetest-1:europe-west1:webinterfacetest -u /cloudsql"
 alias cloudsql_staging_mysql_port="/cloudsql/cloud-sql-proxy webinterfacetest-1:europe-west1:webinterfacetest -p 3307"
 alias cloudsql_prod_mysql_no_port="/cloudsql/cloud-sql-proxy erudite-host:europe-west1:webinterface-readonly-1 -u /cloudsql"
-alias cloudsql_prod_mysql_port="/cloudsql/cloud-sql-proxy erudite-host:europe-west1:webinterface-readonly-1 -p 3306"
+alias cloudsql_prod_mysql_port="/cloudsql/cloud-sql-proxy erudite-host:europe-west1:webinterface-readonly-1 -p 3308"
 
 # Compute Engine
 alias start_scibribe_machine='gcloud compute instances --project "scibribe" start --zone "europe-west1-b" "scibribe-machine"'
@@ -15,6 +15,7 @@ alias ssh_scheduler_math='gcloud compute --project "noted-victory-133614" ssh --
 
 # Kubernetes
 alias kub=kubectl
+alias pam_k="gcloud beta pam grants create --entitlement=kubernetes-engine-developper --requested-duration='7200s' --justification='using kubernetes for checking logs' --location=global"
 
 # Git
 alias git_clean_local="git branch --merged >/tmp/merged-branches &&   vi /tmp/merged-branches && xargs git branch -d </tmp/merged-branches"
